@@ -9,3 +9,11 @@
 import UIKit
 
 let SHADOW_COLOR = CGFloat(157/255)
+
+let KEY_UID = "uid"
+
+
+
+// StatusCode 
+
+let StatusAccountNoneExist = -8
