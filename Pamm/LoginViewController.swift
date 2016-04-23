@@ -14,6 +14,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: MaterialTextField!
     @IBOutlet weak var passwordTextField: MaterialTextField!
     
+    @IBOutlet weak var fbLoginbtn: FBSDKLoginButton!{
+        didSet{
+            fbLoginbtn.delegate = self
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,27 +46,7 @@ class LoginViewController: UIViewController {
     
     
 
-    @IBAction func fbBtnPressed(sender: FBSDKLoginButton) {
-        
-        let fbLogin = FBSDKLoginManager()
-        
-        fbLogin.logInWithReadPermissions(["email"], fromViewController: self) { (results, error) in
-            if error != nil {
-                print("FB login error")
-            }else {
-                let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
-                // login firebase
-                DataSerice.sharedInstance().REF_BASE.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { (error, data) in
-                    if error != nil {
-                        print("Login Failed \(error)")
-                    }else {
-                        print("Logged in")
-                        self.loginSucced(data.uid)
-                    }
-                })
-            }
-        }
-    }
+ 
     
     @IBAction func attemptLogin(sender: UIButton) {
         guard let email = emailTextField.text where email != "",
@@ -78,24 +63,36 @@ class LoginViewController: UIViewController {
                     
                     // if the email is not existing, we create a new account, not very good UX, but as the toturial, could be improved later.
                     
-                    DataSerice.sharedInstance().REF_BASE.createUser(email, password: pwd, withCompletionBlock: { (error) in
-                        if error != nil {
-                            self.showErrorAlert("Couldn't create user", msg: "Error creating a new user with \(email)")
-                        }else {
-                            print("account Created")
+                    DataSerice.sharedInstance().REF_BASE.createUser(email, password: pwd, withValueCompletionBlock: { (error, result) in
+                        guard let _ = result else {
+                            self.showErrorAlert("Couldn't create user", msg: "\(error)")
+                            return
                         }
+                        DataSerice.sharedInstance().REF_BASE.authUser(email, password: pwd, withCompletionBlock: { (error, authData) in
+                            guard let data = authData else {
+                                self.showErrorAlert("Couldn't Auth user", msg: "\(error)")
+                                return
+                            }
+                            
+                            let user = ["provider": data.provider!, "blah": "Email test"]
+                            DataSerice.sharedInstance().createFireBseUser(data.uid, user: user)
+                            self.loginNSUserSave(data.uid)
+                        })
                     })
+                
                 }
                 self.showErrorAlert("Wrong login info", msg: "Check your password")
             }else {
-                self.loginSucced(data.uid)
+                self.loginNSUserSave(data.uid)
             }
         }
     }
     
-    func loginSucced(uid: String) {
+    func loginNSUserSave(uid: String?) {
         NSUserDefaults.standardUserDefaults().setValue(uid, forKey: KEY_UID)
-        self.performSegueWithIdentifier(StoryBoard.LOGIN_SEGUE, sender: nil)
+        if uid != nil {
+            self.performSegueWithIdentifier(StoryBoard.LOGIN_SEGUE, sender: nil)
+        }
 
     }
     
@@ -110,6 +107,43 @@ class LoginViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         
+    }
+}
+
+extension LoginViewController: FBSDKLoginButtonDelegate {
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        guard let _ = result else {
+            print(error)
+            return
+        }
+
+        guard let accessToken = FBSDKAccessToken.currentAccessToken().tokenString else {
+            self.showErrorAlert("Fb access token failed", msg: "\(error)")
+            return
+        }
+        
+        // login firebase
+        DataSerice.sharedInstance().REF_BASE.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { (error, data) in
+            guard let data = data, provider = data.provider else {
+                self.showErrorAlert("Fb login failed", msg: "\(error)")
+                return
+            }
+            let user = ["provider": provider, "blah": "test"]
+            DataSerice.sharedInstance().createFireBseUser(data.uid, user: user)
+            
+            self.loginNSUserSave(data.uid)
+        })
+
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        loginNSUserSave(nil)
+    }
+    
+    func loginButtonWillLogin(loginButton: FBSDKLoginButton!) -> Bool {
+//        loginNSUserSave(loginButton)
+        return true
     }
 }
 

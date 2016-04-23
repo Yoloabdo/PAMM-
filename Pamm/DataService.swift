@@ -9,16 +9,44 @@
 import Foundation
 import Firebase
 
+let BASE_URL = "https://brilliant-inferno-55.firebaseio.com"
+
 
 class DataSerice {
     
-    private let _REF_BASE = Firebase(url: "https://brilliant-inferno-55.firebaseio.com")
+    
+    private let _REF_BASE = Firebase(url: "\(BASE_URL)")
+    private let _REF_POSTS = Firebase(url: "\(BASE_URL)/posts")
+    private let _REF_USERS = Firebase(url: "\(BASE_URL)/users")
     
     var REF_BASE: Firebase {
         get {
             return _REF_BASE
         }
     }
+    var REF_POSTS: Firebase {
+        get {
+            return _REF_POSTS
+        }
+    }
+    var REF_USERS: Firebase {
+        get {
+            return _REF_USERS
+        }
+    }
+    
+    
+    
+    func createFireBseUser(uid: String, user: Dictionary<String,String>) -> Void {
+        REF_USERS.childByAppendingPath(uid).setValue(user)
+    }
+    
+    
+    
+    
+    
+    
+    
     
     
     // MARK: Shared Instance

@@ -66,9 +66,6 @@
                                                 <exclude reference="Gxe-QZ-Y3w"/>
                                             </mask>
                                         </variation>
-                                        <connections>
-                                            <action selector="fbBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hxu-jP-Qur"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -106,12 +103,12 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PLz-Ya-2eS" customClass="MaterialTextField" customModule="Pamm" customModuleProvider="target">
                                         <rect key="frame" x="8" y="52" width="528" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="df2-IN-fdc" customClass="MaterialTextField" customModule="Pamm" customModuleProvider="target">
                                         <rect key="frame" x="8" y="90" width="528" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -145,6 +142,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="PLz-Ya-2eS" id="j7o-cV-xcu"/>
+                        <outlet property="fbLoginbtn" destination="WfY-4F-ecO" id="OKT-Vj-L3f"/>
                         <outlet property="passwordTextField" destination="df2-IN-fdc" id="CTF-dg-sPJ"/>
                         <segue destination="Nvm-0p-xxI" kind="show" identifier="loginSuccess" id="5xX-Je-Jpg"/>
                     </connections>
@@ -226,7 +224,7 @@
                                                                         </stackView>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2af-Eg-jVV">
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2af-Eg-jVV">
                                                                     <rect key="frame" x="0.0" y="55" width="544" height="60"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
@@ -242,7 +240,7 @@
                                                                         </mask>
                                                                     </variation>
                                                                 </textView>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="postimage" translatesAutoresizingMaskIntoConstraints="NO" id="zbM-fq-7Aa">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="postimage" translatesAutoresizingMaskIntoConstraints="NO" id="zbM-fq-7Aa">
                                                                     <rect key="frame" x="0.0" y="120" width="544" height="233"/>
                                                                 </imageView>
                                                             </subviews>
