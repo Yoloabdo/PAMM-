@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		69C3226846BB22816DE5C436 /* Pods_Pamm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD95876092BB30F5F0B7CC9 /* Pods_Pamm.framework */; };
 		B4B667D91CCA8CE300BD6157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B667D81CCA8CE300BD6157 /* AppDelegate.swift */; };
-		B4B667DB1CCA8CE300BD6157 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B667DA1CCA8CE300BD6157 /* ViewController.swift */; };
+		B4B667DB1CCA8CE300BD6157 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B667DA1CCA8CE300BD6157 /* LoginViewController.swift */; };
 		B4B667DE1CCA8CE300BD6157 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B667DC1CCA8CE300BD6157 /* Main.storyboard */; };
 		B4B667E01CCA8CE300BD6157 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4B667DF1CCA8CE300BD6157 /* Assets.xcassets */; };
 		B4B667E31CCA8CE300BD6157 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B667E11CCA8CE300BD6157 /* LaunchScreen.storyboard */; };
@@ -27,6 +27,8 @@
 		B4B668041CCAC88800BD6157 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B667FE1CCAC88800BD6157 /* FBSDKShareKit.framework */; };
 		B4B668051CCAC88800BD6157 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B667FF1CCAC88800BD6157 /* Firebase.framework */; };
 		B4B668081CCACF5300BD6157 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B668071CCACF5300BD6157 /* DataService.swift */; };
+		B4F0A60F1CCB99D500E1A3AC /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F0A60E1CCB99D500E1A3AC /* FeedsViewController.swift */; };
+		B4F0A6111CCB9CEB00E1A3AC /* FeedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F0A6101CCB9CEB00E1A3AC /* FeedsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +36,7 @@
 		64B56597F438843AA4F77CB1 /* Pods-Pamm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pamm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pamm/Pods-Pamm.debug.xcconfig"; sourceTree = "<group>"; };
 		B4B667D51CCA8CE300BD6157 /* Pamm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pamm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B667D81CCA8CE300BD6157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B4B667DA1CCA8CE300BD6157 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B4B667DA1CCA8CE300BD6157 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B4B667DD1CCA8CE300BD6157 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B4B667DF1CCA8CE300BD6157 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4B667E21CCA8CE300BD6157 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +55,8 @@
 		B4B667FE1CCAC88800BD6157 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "Pods/../build/Debug-iphoneos/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		B4B667FF1CCAC88800BD6157 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = "Pods/../build/Debug-iphoneos/Firebase.framework"; sourceTree = "<group>"; };
 		B4B668071CCACF5300BD6157 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		B4F0A60E1CCB99D500E1A3AC /* FeedsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
+		B4F0A6101CCB9CEB00E1A3AC /* FeedsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsTableViewCell.swift; sourceTree = "<group>"; };
 		FBD95876092BB30F5F0B7CC9 /* Pods_Pamm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pamm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,7 +124,7 @@
 			children = (
 				B4B668061CCACF4300BD6157 /* Services */,
 				B4B667D81CCA8CE300BD6157 /* AppDelegate.swift */,
-				B4B667DA1CCA8CE300BD6157 /* ViewController.swift */,
+				B4F0A60D1CCB997F00E1A3AC /* Controller */,
 				B4B667DC1CCA8CE300BD6157 /* Main.storyboard */,
 				B4B667F51CCA97FE00BD6157 /* Views */,
 				B4B667DF1CCA8CE300BD6157 /* Assets.xcassets */,
@@ -146,6 +150,7 @@
 		B4B667F51CCA97FE00BD6157 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B4F0A6101CCB9CEB00E1A3AC /* FeedsTableViewCell.swift */,
 				B4B667F31CCA97F700BD6157 /* MaterialLoginView.swift */,
 				B4B667F81CCAC3EC00BD6157 /* MaterialTextField.swift */,
 			);
@@ -158,6 +163,15 @@
 				B4B668071CCACF5300BD6157 /* DataService.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		B4F0A60D1CCB997F00E1A3AC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B4B667DA1CCA8CE300BD6157 /* LoginViewController.swift */,
+				B4F0A60E1CCB99D500E1A3AC /* FeedsViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,10 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4B667DB1CCA8CE300BD6157 /* ViewController.swift in Sources */,
+				B4B667DB1CCA8CE300BD6157 /* LoginViewController.swift in Sources */,
 				B4B667F41CCA97F700BD6157 /* MaterialLoginView.swift in Sources */,
+				B4F0A60F1CCB99D500E1A3AC /* FeedsViewController.swift in Sources */,
 				B4B667F91CCAC3EC00BD6157 /* MaterialTextField.swift in Sources */,
 				B4B668081CCACF5300BD6157 /* DataService.swift in Sources */,
+				B4F0A6111CCB9CEB00E1A3AC /* FeedsTableViewCell.swift in Sources */,
 				B4B667D91CCA8CE300BD6157 /* AppDelegate.swift in Sources */,
 				B4B667F71CCA981300BD6157 /* Constants.swift in Sources */,
 			);

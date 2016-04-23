@@ -9,7 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: MaterialTextField!
     @IBOutlet weak var passwordTextField: MaterialTextField!
@@ -50,8 +50,7 @@ class ViewController: UIViewController {
                 print("FB login error")
             }else {
                 let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
-                print("successfuly login with fb \(accessToken)")
-                
+                // login firebase
                 DataSerice.sharedInstance().REF_BASE.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { (error, data) in
                     if error != nil {
                         print("Login Failed \(error)")
@@ -59,11 +58,9 @@ class ViewController: UIViewController {
                         print("Logged in")
                         self.loginSucced(data.uid)
                     }
-                    
                 })
             }
         }
-
     }
     
     @IBAction func attemptLogin(sender: UIButton) {
@@ -78,11 +75,14 @@ class ViewController: UIViewController {
             if error != nil {
                 if error.code == StatusAccountNoneExist {
                     self.showErrorAlert("Error", msg: "Non existant login, Creating a new account")
+                    
+                    // if the email is not existing, we create a new account, not very good UX, but as the toturial, could be improved later.
+                    
                     DataSerice.sharedInstance().REF_BASE.createUser(email, password: pwd, withCompletionBlock: { (error) in
                         if error != nil {
                             self.showErrorAlert("Couldn't create user", msg: "Error creating a new user with \(email)")
                         }else {
-                            self.loginSucced(data.uid)
+                            print("account Created")
                         }
                     })
                 }
@@ -91,9 +91,6 @@ class ViewController: UIViewController {
                 self.loginSucced(data.uid)
             }
         }
-        
-        
-        
     }
     
     func loginSucced(uid: String) {
