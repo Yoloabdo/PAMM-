@@ -56,26 +56,26 @@ class LoginViewController: UIViewController {
                 return
         }
         
-        DataSerice.sharedInstance().REF_BASE.authUser(email, password: pwd) { (error, data) in
+        DataService.sharedInstance().REF_BASE.authUser(email, password: pwd) { (error, data) in
             if error != nil {
                 if error.code == StatusAccountNoneExist {
                     self.showErrorAlert("Error", msg: "Non existant login, Creating a new account")
                     
                     // if the email is not existing, we create a new account, not very good UX, but as the toturial, could be improved later.
                     
-                    DataSerice.sharedInstance().REF_BASE.createUser(email, password: pwd, withValueCompletionBlock: { (error, result) in
+                    DataService.sharedInstance().REF_BASE.createUser(email, password: pwd, withValueCompletionBlock: { (error, result) in
                         guard let _ = result else {
                             self.showErrorAlert("Couldn't create user", msg: "\(error)")
                             return
                         }
-                        DataSerice.sharedInstance().REF_BASE.authUser(email, password: pwd, withCompletionBlock: { (error, authData) in
+                        DataService.sharedInstance().REF_BASE.authUser(email, password: pwd, withCompletionBlock: { (error, authData) in
                             guard let data = authData else {
                                 self.showErrorAlert("Couldn't Auth user", msg: "\(error)")
                                 return
                             }
                             
                             let user = ["provider": data.provider!, "blah": "Email test"]
-                            DataSerice.sharedInstance().createFireBseUser(data.uid, user: user)
+                            DataService.sharedInstance().createFireBseUser(data.uid, user: user)
                             self.loginNSUserSave(data.uid)
                         })
                     })
@@ -124,13 +124,13 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
         }
         
         // login firebase
-        DataSerice.sharedInstance().REF_BASE.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { (error, data) in
+        DataService.sharedInstance().REF_BASE.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { (error, data) in
             guard let data = data, provider = data.provider else {
                 self.showErrorAlert("Fb login failed", msg: "\(error)")
                 return
             }
             let user = ["provider": provider, "blah": "test"]
-            DataSerice.sharedInstance().createFireBseUser(data.uid, user: user)
+            DataService.sharedInstance().createFireBseUser(data.uid, user: user)
             
             self.loginNSUserSave(data.uid)
         })

@@ -12,7 +12,7 @@ import Firebase
 let BASE_URL = "https://brilliant-inferno-55.firebaseio.com"
 
 
-class DataSerice {
+class DataService {
     
     
     private let _REF_BASE = Firebase(url: "\(BASE_URL)")
@@ -51,9 +51,9 @@ class DataSerice {
     
     // MARK: Shared Instance
     
-    class func sharedInstance() -> DataSerice {
+    class func sharedInstance() -> DataService {
         struct Singleton {
-            static var sharedInstance = DataSerice()
+            static var sharedInstance = DataService()
         }
         return Singleton.sharedInstance
     }
