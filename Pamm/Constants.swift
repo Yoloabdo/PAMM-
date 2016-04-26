@@ -17,3 +17,8 @@ let KEY_UID = "uid"
 // StatusCode 
 
 let StatusAccountNoneExist = -8
+
+
+
+// cache 
+var imageCache = NSCache()

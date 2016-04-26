@@ -30,6 +30,7 @@
 		B4F0A60F1CCB99D500E1A3AC /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F0A60E1CCB99D500E1A3AC /* FeedsViewController.swift */; };
 		B4F0A6111CCB9CEB00E1A3AC /* FeedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F0A6101CCB9CEB00E1A3AC /* FeedsTableViewCell.swift */; };
 		B4F0A6171CCE72D600E1A3AC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F0A6161CCE72D600E1A3AC /* Post.swift */; };
+		B4F0A6191CCEEEE900E1A3AC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F0A6181CCEEEE900E1A3AC /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		B4F0A60E1CCB99D500E1A3AC /* FeedsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
 		B4F0A6101CCB9CEB00E1A3AC /* FeedsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsTableViewCell.swift; sourceTree = "<group>"; };
 		B4F0A6161CCE72D600E1A3AC /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		B4F0A6181CCEEEE900E1A3AC /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/Pamm-grknbcqxmguylhhjerysprenebes/Build/Products/Debug-iphonesimulator/Alamofire.framework"; sourceTree = "<group>"; };
 		FBD95876092BB30F5F0B7CC9 /* Pods_Pamm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pamm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4F0A6191CCEEEE900E1A3AC /* Alamofire.framework in Frameworks */,
 				B4B668001CCAC88800BD6157 /* Bolts.framework in Frameworks */,
 				B4B668011CCAC88800BD6157 /* FBSDKCoreKit.framework in Frameworks */,
 				B4B668021CCAC88800BD6157 /* FBSDKLoginKit.framework in Frameworks */,
@@ -83,6 +86,7 @@
 		866C8C8213D20E8E765D6E38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B4F0A6181CCEEEE900E1A3AC /* Alamofire.framework */,
 				B4B667FA1CCAC88800BD6157 /* Bolts.framework */,
 				B4B667FB1CCAC88800BD6157 /* FBSDKCoreKit.framework */,
 				B4B667FC1CCAC88800BD6157 /* FBSDKLoginKit.framework */,
@@ -124,16 +128,14 @@
 		B4B667D71CCA8CE300BD6157 /* Pamm */ = {
 			isa = PBXGroup;
 			children = (
+				B4B667DC1CCA8CE300BD6157 /* Main.storyboard */,
 				B4F0A6151CCE72C400E1A3AC /* Model */,
 				B4B668061CCACF4300BD6157 /* Services */,
-				B4B667D81CCA8CE300BD6157 /* AppDelegate.swift */,
 				B4F0A60D1CCB997F00E1A3AC /* Controller */,
-				B4B667DC1CCA8CE300BD6157 /* Main.storyboard */,
 				B4B667F51CCA97FE00BD6157 /* Views */,
-				B4B667DF1CCA8CE300BD6157 /* Assets.xcassets */,
-				B4B667E41CCA8CE300BD6157 /* Info.plist */,
 				B4B667F21CCA92C000BD6157 /* Resources */,
 				B4B667F61CCA981300BD6157 /* Constants.swift */,
+				B4B667D81CCA8CE300BD6157 /* AppDelegate.swift */,
 			);
 			path = Pamm;
 			sourceTree = "<group>";
@@ -141,6 +143,8 @@
 		B4B667F21CCA92C000BD6157 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B4B667E41CCA8CE300BD6157 /* Info.plist */,
+				B4B667DF1CCA8CE300BD6157 /* Assets.xcassets */,
 				B4B667E11CCA8CE300BD6157 /* LaunchScreen.storyboard */,
 				B4B667EA1CCA92BB00BD6157 /* NotoSans-Bold.ttf */,
 				B4B667EB1CCA92BB00BD6157 /* NotoSans-BoldItalic.ttf */,

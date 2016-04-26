@@ -163,12 +163,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="369" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uE4-EF-QrR">
-                                <rect key="frame" x="20" y="64" width="560" height="536"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6QL-eM-kmP" customClass="MaterialLoginView" customModule="Pamm" customModuleProvider="target">
+                                <rect key="frame" x="20" y="72" width="560" height="75"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="La4-xX-5iA">
+                                        <rect key="frame" x="16" y="16" width="528" height="44"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do you feel?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eU5-6F-vgk">
+                                                <rect key="frame" x="0.0" y="0.0" width="407" height="44"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="Kc6-Mq-or2">
+                                                <rect key="frame" x="418" y="0.0" width="44" height="44"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVS-hB-Db0">
+                                                <rect key="frame" x="473" y="0.0" width="55" height="44"/>
+                                                <color key="backgroundColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="55" id="24O-Yy-mN2"/>
+                                                </constraints>
+                                                <state key="normal" title="POST"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="La4-xX-5iA" firstAttribute="leading" secondItem="6QL-eM-kmP" secondAttribute="leadingMargin" constant="8" id="5Sw-BI-S7W"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="La4-xX-5iA" secondAttribute="trailing" constant="8" id="Jyh-lt-eDH"/>
+                                    <constraint firstItem="La4-xX-5iA" firstAttribute="top" secondItem="6QL-eM-kmP" secondAttribute="topMargin" constant="8" id="KRb-mC-l4f"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="La4-xX-5iA" secondAttribute="bottom" constant="8" id="N8b-9v-jhA"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="369" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uE4-EF-QrR">
+                                <rect key="frame" x="20" y="155" width="560" height="445"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedsCell" rowHeight="369" id="RH0-R3-IWZ" customClass="FeedsTableViewCell" customModule="Pamm" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="560" height="369"/>
+                                        <rect key="frame" x="0.0" y="28" width="560" height="369"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RH0-R3-IWZ" id="81w-P5-CkA">
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="369"/>
@@ -177,7 +211,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k0F-hN-voO" customClass="MaterialLoginView" customModule="Pamm" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="544" height="352.5"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nat-NI-FCf">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nat-NI-FCf">
                                                             <rect key="frame" x="0.0" y="0.0" width="544" height="353"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="X35-qF-Nv8">
@@ -224,34 +258,34 @@
                                                                         </stackView>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2af-Eg-jVV">
-                                                                    <rect key="frame" x="0.0" y="55" width="544" height="60"/>
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2af-Eg-jVV">
+                                                                    <rect key="frame" x="0.0" y="55" width="544" height="38"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="60" id="8Fh-nV-soU"/>
-                                                                        <constraint firstAttribute="height" constant="70" id="Muo-Tg-hvq"/>
+                                                                        <constraint firstAttribute="height" constant="60" id="YYJ-vh-LtW"/>
                                                                     </constraints>
                                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                                     <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                     <variation key="default">
                                                                         <mask key="constraints">
-                                                                            <exclude reference="Muo-Tg-hvq"/>
+                                                                            <exclude reference="8Fh-nV-soU"/>
                                                                         </mask>
                                                                     </variation>
                                                                 </textView>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="postimage" translatesAutoresizingMaskIntoConstraints="NO" id="zbM-fq-7Aa">
-                                                                    <rect key="frame" x="0.0" y="120" width="544" height="233"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="postimage" translatesAutoresizingMaskIntoConstraints="NO" id="zbM-fq-7Aa">
+                                                                    <rect key="frame" x="0.0" y="98" width="544" height="255"/>
                                                                 </imageView>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="nat-NI-FCf" firstAttribute="leading" secondItem="k0F-hN-voO" secondAttribute="leading" id="4B3-UF-BxA"/>
-                                                        <constraint firstAttribute="trailing" secondItem="nat-NI-FCf" secondAttribute="trailing" id="gEq-A0-Qza"/>
-                                                        <constraint firstItem="nat-NI-FCf" firstAttribute="top" secondItem="k0F-hN-voO" secondAttribute="top" id="tRj-Ib-Zrs"/>
-                                                        <constraint firstAttribute="bottom" secondItem="nat-NI-FCf" secondAttribute="bottom" id="xyk-sC-w91"/>
+                                                        <constraint firstAttribute="bottom" secondItem="nat-NI-FCf" secondAttribute="bottom" id="Hsi-U1-t9h"/>
+                                                        <constraint firstItem="nat-NI-FCf" firstAttribute="top" secondItem="k0F-hN-voO" secondAttribute="top" id="Iut-0L-gAF"/>
+                                                        <constraint firstAttribute="trailing" secondItem="nat-NI-FCf" secondAttribute="trailing" id="Q0J-Hp-NLW"/>
+                                                        <constraint firstItem="nat-NI-FCf" firstAttribute="leading" secondItem="k0F-hN-voO" secondAttribute="leading" id="YUC-G0-3ta"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -263,8 +297,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="likesNumberLabel" destination="fYh-fu-DaJ" id="1x9-bJ-oSX"/>
                                             <outlet property="profileImg" destination="sIf-Ed-ajm" id="m89-D8-BSP"/>
                                             <outlet property="showCaseImg" destination="zbM-fq-7Aa" id="75j-eP-CNf"/>
+                                            <outlet property="textPostField" destination="2af-Eg-jVV" id="1j3-0z-K3E"/>
+                                            <outlet property="usernameLabel" destination="TPk-VF-oEK" id="Tap-K6-OAt"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -272,10 +309,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6QL-eM-kmP" firstAttribute="leading" secondItem="wls-dx-jjv" secondAttribute="leadingMargin" id="2XJ-zh-P2S"/>
+                            <constraint firstItem="6QL-eM-kmP" firstAttribute="trailing" secondItem="wls-dx-jjv" secondAttribute="trailingMargin" id="Am3-4q-NGo"/>
                             <constraint firstItem="uE4-EF-QrR" firstAttribute="leading" secondItem="wls-dx-jjv" secondAttribute="leadingMargin" id="DmV-sN-cKI"/>
+                            <constraint firstItem="6QL-eM-kmP" firstAttribute="top" secondItem="6a0-vk-zfa" secondAttribute="bottom" constant="8" id="FF5-vK-zyn"/>
                             <constraint firstItem="Uga-KQ-uSh" firstAttribute="top" secondItem="uE4-EF-QrR" secondAttribute="bottom" id="NVf-gU-HRJ"/>
+                            <constraint firstItem="uE4-EF-QrR" firstAttribute="top" secondItem="6QL-eM-kmP" secondAttribute="bottom" constant="8" id="VnD-Vz-6u2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uE4-EF-QrR" secondAttribute="trailing" id="taB-ij-ynT"/>
-                            <constraint firstItem="uE4-EF-QrR" firstAttribute="top" secondItem="6a0-vk-zfa" secondAttribute="bottom" id="ylC-Ct-odh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="05Q-SA-Ukv"/>
@@ -310,6 +350,7 @@
     </scenes>
     <resources>
         <image name="avatar" width="128" height="128"/>
+        <image name="camera" width="44" height="44"/>
         <image name="emptyheart" width="170" height="170"/>
         <image name="postimage" width="540" height="355"/>
     </resources>

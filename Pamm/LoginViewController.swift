@@ -142,7 +142,6 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
     }
     
     func loginButtonWillLogin(loginButton: FBSDKLoginButton!) -> Bool {
-//        loginNSUserSave(loginButton)
         return true
     }
 }

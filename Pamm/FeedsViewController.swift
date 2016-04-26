@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+
 class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var feedsTableView: UITableView! {
         didSet{
@@ -23,11 +24,14 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-     watchData()
+         watchData()
     }
+    
     
     func watchData() -> Void {
         DataService.sharedInstance().REF_POSTS.observeEventType(.Value, withBlock: { (snapShot) in
@@ -69,8 +73,23 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(StoryBoard.CellIDentfier) as! FeedsTableViewCell
-        let post = posts[indexPath.row]
-        print(post.postDescription)
+        // canceling the old request
+        cell.request?.cancel()
+        // passing the new cell info
+        cell.postEntity = posts[indexPath.row]
+        
         return cell
     }
+    
+    /*
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if posts[indexPath.row].imageURL != nil {
+            return tableView.estimatedRowHeight
+        }else {
+            return 130
+        }
+    }
+ 
+ */
 }

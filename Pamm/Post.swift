@@ -25,9 +25,14 @@ class Post {
         }
     }
     
-    var imageURL: String {
+    var imageURL: String? {
         get {
-            return _imageURL!
+            if _imageURL != "nil"{
+                return _imageURL
+            }else {
+                print(_imageURL)
+                return nil
+            }
         }
     }
     
