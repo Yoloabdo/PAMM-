@@ -68,7 +68,7 @@ class FeedsTableViewCell: UITableViewCell {
                     }
                     
                     guard let img = UIImage(data: data) else {
-                        print("Couldn't interpret data to image")
+                        print("Couldn't interpret data to image \(error?.description)")
                         return
                     }
                     self.loadingImageActivity.stopAnimating()

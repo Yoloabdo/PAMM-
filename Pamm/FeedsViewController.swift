@@ -185,9 +185,9 @@ extension FeedsViewController: UIImagePickerControllerDelegate, UINavigationCont
     
     func postToFireBase(imageUrl: String, activity: UIActivityIndicatorView) {
         let post: Dictionary<String, AnyObject> = [
-        "describtion": newPostTextField.text!,
+        "description": newPostTextField.text!,
         "likes": Int(0),
-        "imageURL": imageUrl
+        "imageURL": "https://" + imageUrl
         ]
         let firebasePost = DataService.sharedInstance().REF_POSTS.childByAutoId()
         firebasePost.setValue(post)

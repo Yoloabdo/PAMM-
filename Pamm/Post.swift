@@ -28,7 +28,8 @@ class Post {
     var imageURL: String? {
         get {
             if _imageURL != "nil"{
-                return _imageURL
+                return _imageURL!
+            
             }else {
                 print(_imageURL)
                 return nil
@@ -73,6 +74,8 @@ class Post {
             print("Error loading description ")
             return
         }
+        
+        
         
         self._likes = likes
         self._imageURL = imagelink
