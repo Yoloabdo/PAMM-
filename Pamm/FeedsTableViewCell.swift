@@ -16,6 +16,7 @@ class FeedsTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var likesNumberLabel: UILabel!
     @IBOutlet weak var textPostField: UITextView!
+    @IBOutlet weak var loadingImageActivity: UIActivityIndicatorView!
     
 
     override func awakeFromNib() {
@@ -70,7 +71,7 @@ class FeedsTableViewCell: UITableViewCell {
                         print("Couldn't interpret data to image")
                         return
                     }
-                    
+                    self.loadingImageActivity.stopAnimating()
                     self.showCaseImg.image = img
                     imageCache[link] = img
                 }

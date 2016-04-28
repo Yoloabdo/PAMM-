@@ -8,9 +8,13 @@
 
 import UIKit
 import Firebase
+import Alamofire
 
 
 class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var newPostTextField: MaterialTextField!
+    
     @IBOutlet weak var feedsTableView: UITableView! {
         didSet{
             feedsTableView.delegate = self
@@ -23,13 +27,19 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.feedsTableView.reloadData()
         }
     }
+    @IBOutlet weak var imagePickerView: UIImageView!
     
+    var imagePicker: UIImagePickerController!
+
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
          watchData()
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
     }
     
     
@@ -92,4 +102,104 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
  
  */
+    
+    // post stuff
+    var imageSelcted: UIImage!
+
+}
+
+extension FeedsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    @IBAction func imagePicker(sender: UITapGestureRecognizer) {
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func makePost(sender: MaterialButton) {
+        
+        
+        let activity = UIActivityIndicatorView(activityIndicatorStyle: .White)
+        activity.startAnimating()
+        activity.hidesWhenStopped = true
+        activity.center = imagePickerView.center
+        
+        
+        
+        
+        if let text = newPostTextField.text where text != "" {
+            if let image = imageSelcted {
+                let urlStr = "https://api.imageshack.com/v2/images"
+                let url = NSURL(string: urlStr)
+                let jpegIm = UIImageJPEGRepresentation(image, 0.2)!
+                let key = "LXMS71Z37f6056d4bc7ef298a0ab07389ad85369".dataUsingEncoding(NSUTF8StringEncoding)
+                let keyJson = "json".dataUsingEncoding(NSUTF8StringEncoding)
+                imagePickerView.addSubview(activity)
+                Alamofire.upload(.POST, url!, multipartFormData: { (MultipartFormData) in
+                    MultipartFormData.appendBodyPart(data: jpegIm, name: "fileupload", fileName: "iamge", mimeType: "image/jpg")
+                    MultipartFormData.appendBodyPart(data: key!, name: "key")
+                    MultipartFormData.appendBodyPart(data: keyJson!, name: "format")
+                    
+                    }, encodingCompletion: { (results) in
+                        switch results {
+                        case .Success(let upload , _, _):
+                            upload.responseJSON(completionHandler: { (response) in
+                                
+                                if let error = response.result.error {
+                                    print(error)
+                                    return
+                                } else {
+                                    
+                                    var json: Dictionary<String, AnyObject>!
+                                    do {
+                                        json = try NSJSONSerialization.JSONObjectWithData(response.data!, options: .AllowFragments) as! Dictionary<String, AnyObject>
+                                    } catch {
+                                        print("couldn't parse data")
+                                        return
+                                    }
+                                 
+                                    guard let result = json["result"], let images = result["images"] else {
+                                        print("couldn't find links in results")
+                                        return
+                                    }
+                                    
+                                    guard let imgArr = images![0], let imageLink = imgArr["direct_link"] as? String else {
+                                        print("Couldn't find image")
+                                        return
+                                    }
+                                    self.postToFireBase(imageLink, activity: activity)
+                                }
+                                
+                            })
+                        case .Failure(let error):
+                            print(error)
+                        }
+                        
+                })
+                
+                
+                
+            }
+        }
+    }
+    
+    func postToFireBase(imageUrl: String, activity: UIActivityIndicatorView) {
+        let post: Dictionary<String, AnyObject> = [
+        "describtion": newPostTextField.text!,
+        "likes": Int(0),
+        "imageURL": imageUrl
+        ]
+        let firebasePost = DataService.sharedInstance().REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        newPostTextField.text = ""
+        imageSelcted = nil
+        activity.stopAnimating()
+        
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+        imageSelcted = image
+    }
+    
 }
