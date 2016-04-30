@@ -19,6 +19,10 @@ class DataService {
     private let _REF_POSTS = Firebase(url: "\(BASE_URL)/posts")
     private let _REF_USERS = Firebase(url: "\(BASE_URL)/users")
     
+//    private let _REF_TABLE = Firebase(url: "\(BASE_URL)/college-table")
+    
+    private let _THIRD_YEAR = Firebase(url: "\(BASE_URL)/college-table/computer-science/third-year/cs-dep/sec-4")
+    
     var REF_BASE: Firebase {
         get {
             return _REF_BASE
@@ -32,6 +36,12 @@ class DataService {
     var REF_USERS: Firebase {
         get {
             return _REF_USERS
+        }
+    }
+    
+    var REF_TABLE_THIRD_SEC4: Firebase {
+        get{
+            return _THIRD_YEAR
         }
     }
     

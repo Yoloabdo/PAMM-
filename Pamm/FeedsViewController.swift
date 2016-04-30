@@ -116,6 +116,9 @@ extension FeedsViewController: UIImagePickerControllerDelegate, UINavigationCont
         
     }
     
+    
+    // MARK: -Making the post 
+    
     @IBAction func makePost(sender: MaterialButton) {
         
         
@@ -187,7 +190,8 @@ extension FeedsViewController: UIImagePickerControllerDelegate, UINavigationCont
         let post: Dictionary<String, AnyObject> = [
         "description": newPostTextField.text!,
         "likes": Int(0),
-        "imageURL": "https://" + imageUrl
+        "imageURL": "https://" + imageUrl,
+        "date": String(NSDate())
         ]
         let firebasePost = DataService.sharedInstance().REF_POSTS.childByAutoId()
         firebasePost.setValue(post)

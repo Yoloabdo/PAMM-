@@ -32,6 +32,7 @@
 		B4F0A6111CCB9CEB00E1A3AC /* FeedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F0A6101CCB9CEB00E1A3AC /* FeedsTableViewCell.swift */; };
 		B4F0A6171CCE72D600E1A3AC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F0A6161CCE72D600E1A3AC /* Post.swift */; };
 		B4F0A6191CCEEEE900E1A3AC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F0A6181CCEEEE900E1A3AC /* Alamofire.framework */; };
+		B4F7539D1CD4DEB80094EE00 /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F7539C1CD4DEB80094EE00 /* TimeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		B4F0A6101CCB9CEB00E1A3AC /* FeedsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsTableViewCell.swift; sourceTree = "<group>"; };
 		B4F0A6161CCE72D600E1A3AC /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		B4F0A6181CCEEEE900E1A3AC /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/Pamm-grknbcqxmguylhhjerysprenebes/Build/Products/Debug-iphonesimulator/Alamofire.framework"; sourceTree = "<group>"; };
+		B4F7539C1CD4DEB80094EE00 /* TimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		FBD95876092BB30F5F0B7CC9 /* Pods_Pamm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pamm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -180,6 +182,7 @@
 			children = (
 				B4B667DA1CCA8CE300BD6157 /* LoginViewController.swift */,
 				B4F0A60E1CCB99D500E1A3AC /* FeedsViewController.swift */,
+				B4F7539C1CD4DEB80094EE00 /* TimeTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				B4B668081CCACF5300BD6157 /* DataService.swift in Sources */,
 				B4F0A6111CCB9CEB00E1A3AC /* FeedsTableViewCell.swift in Sources */,
 				B4B667D91CCA8CE300BD6157 /* AppDelegate.swift in Sources */,
+				B4F7539D1CD4DEB80094EE00 /* TimeTableViewController.swift in Sources */,
 				B4F0A6171CCE72D600E1A3AC /* Post.swift in Sources */,
 				B4B667F71CCA981300BD6157 /* Constants.swift in Sources */,
 			);

@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var fbLoginbtn: FBSDKLoginButton!{
         didSet{
             fbLoginbtn.delegate = self
+            fbLoginbtn.readPermissions = ["public_profile", "email", "user_friends"]
         }
     }
 
@@ -123,18 +124,60 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
             return
         }
         
-        // login firebase
-        DataService.sharedInstance().REF_BASE.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { (error, data) in
-            guard let data = data, provider = data.provider else {
-                self.showErrorAlert("Fb login failed", msg: "\(error)")
-                return
-            }
-            let user = ["provider": provider, "blah": "test"]
-            DataService.sharedInstance().createFireBseUser(data.uid, user: user)
+        
+        if result.grantedPermissions.contains("email")
+        {
+            let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"name, email"])
+            graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                
+                guard let results = result else {
+                    print(error)
+                    return
+                }
+               
+                
+                
+                // login firebase
+                DataService.sharedInstance().REF_BASE.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { (error, data) in
+                    guard let data = data, provider = data.provider else {
+                        self.showErrorAlert("Fb login failed", msg: "\(error)")
+                        return
+                    }
+                    guard let name = results.valueForKey("name") as? String, email = results.valueForKey("email") as? String else {
+                        print("couldn't get name or email ")
+                        return
+                    }
+                    
+                    let user = ["provider": provider, "name": name, "email": email]
+                    DataService.sharedInstance().createFireBseUser(data.uid, user: user)
+                    
+                    self.loginNSUserSave(data.uid)
+                })
+            })
+        }
+    }
+    
+    func returnUserData()
+    {
+        
+        
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"name, email"])
+        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
             
-            self.loginNSUserSave(data.uid)
+            if ((error) != nil)
+            {
+                // Process error
+                print("Error: \(error)")
+            }
+            else
+            {
+                print("fetched user: \(result)")
+                let userName : NSString = result.valueForKey("name") as! NSString
+                print("User Name is: \(userName)")
+                let userEmail : NSString = result.valueForKey("email") as! NSString
+                print("User Email is: \(userEmail)")
+            }
         })
-
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
