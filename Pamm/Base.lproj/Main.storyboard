@@ -79,7 +79,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l0f-jB-oFt">
-                                <rect key="frame" x="28" y="243" width="544" height="332"/>
+                                <rect key="frame" x="28" y="226" width="544" height="366"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email Login / Signup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T43-p3-Wnb">
                                         <rect key="frame" x="8" y="0.0" width="172" height="44"/>
@@ -87,11 +87,30 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkU-lu-frM" customClass="MaterialButton" customModule="Pamm" customModuleProvider="target">
-                                        <rect key="frame" x="173" y="160" width="190" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ebA-30-bU2">
+                                        <rect key="frame" x="8" y="52" width="528" height="80"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PLz-Ya-2eS" customClass="MaterialTextField" customModule="Pamm" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="528" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="df2-IN-fdc" customClass="MaterialTextField" customModule="Pamm" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="40" width="528" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="od0-MM-z4R"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkU-lu-frM" customClass="MaterialButton" customModule="Pamm" customModuleProvider="target">
+                                        <rect key="frame" x="152" y="140" width="240" height="44"/>
                                         <color key="backgroundColor" red="0.12941176470588234" green="0.58823529411764708" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="190" id="EaY-S0-0Ti"/>
+                                            <constraint firstAttribute="height" constant="44" id="KwR-9I-Up6"/>
+                                            <constraint firstAttribute="width" constant="240" id="g5i-au-fHH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
                                         <state key="normal" title="Login / SignUp">
@@ -101,25 +120,14 @@
                                             <action selector="attemptLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LnG-Qp-IL4"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PLz-Ya-2eS" customClass="MaterialTextField" customModule="Pamm" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="52" width="528" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="df2-IN-fdc" customClass="MaterialTextField" customModule="Pamm" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="90" width="528" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
-                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="df2-IN-fdc" firstAttribute="leading" secondItem="PLz-Ya-2eS" secondAttribute="leading" id="IIq-Qj-5Xm"/>
-                                    <constraint firstItem="df2-IN-fdc" firstAttribute="top" secondItem="l0f-jB-oFt" secondAttribute="top" constant="90" id="IUU-hq-CoW"/>
-                                    <constraint firstItem="tkU-lu-frM" firstAttribute="top" secondItem="df2-IN-fdc" secondAttribute="bottom" constant="40" id="P3u-g0-2Oy"/>
-                                    <constraint firstItem="df2-IN-fdc" firstAttribute="trailing" secondItem="PLz-Ya-2eS" secondAttribute="trailing" id="ZG8-Of-dGP"/>
-                                    <constraint firstItem="df2-IN-fdc" firstAttribute="top" secondItem="PLz-Ya-2eS" secondAttribute="bottom" constant="8" symbolic="YES" id="ih8-pR-7cH"/>
-                                    <constraint firstItem="df2-IN-fdc" firstAttribute="centerX" secondItem="tkU-lu-frM" secondAttribute="centerX" constant="4" id="roz-tk-zp7"/>
+                                    <constraint firstItem="tkU-lu-frM" firstAttribute="centerX" secondItem="l0f-jB-oFt" secondAttribute="centerX" id="4Ka-Mk-oGn"/>
+                                    <constraint firstItem="ebA-30-bU2" firstAttribute="leading" secondItem="l0f-jB-oFt" secondAttribute="leading" constant="8" id="Dk0-kS-CIW"/>
+                                    <constraint firstItem="tkU-lu-frM" firstAttribute="top" secondItem="df2-IN-fdc" secondAttribute="bottom" constant="8" id="Ipc-5s-KxL"/>
+                                    <constraint firstItem="ebA-30-bU2" firstAttribute="top" secondItem="l0f-jB-oFt" secondAttribute="top" constant="52" id="YW2-aF-k3A"/>
+                                    <constraint firstAttribute="trailing" secondItem="ebA-30-bU2" secondAttribute="trailing" constant="8" id="w2i-Er-RoU"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -129,16 +137,12 @@
                             <constraint firstItem="l0f-jB-oFt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="A8Q-Mi-tTd"/>
                             <constraint firstItem="hne-Ga-vmC" firstAttribute="top" secondItem="BO1-B5-QkN" secondAttribute="bottom" constant="-64" id="B39-Wg-viG"/>
                             <constraint firstItem="BO1-B5-QkN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="EPT-zR-SdQ"/>
-                            <constraint firstItem="PLz-Ya-2eS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="Ewl-0D-xia"/>
                             <constraint firstItem="hne-Ga-vmC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="HZC-Y7-LJd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PLz-Ya-2eS" secondAttribute="trailing" constant="16" id="IqF-AP-rVI"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="l0f-jB-oFt" secondAttribute="bottom" constant="25" id="KfZ-Jj-VDH"/>
-                            <constraint firstItem="df2-IN-fdc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="LqS-Bf-MU2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="l0f-jB-oFt" secondAttribute="bottom" constant="8" id="KfZ-Jj-VDH"/>
                             <constraint firstAttribute="trailing" secondItem="BO1-B5-QkN" secondAttribute="trailing" id="Lx3-Rs-dKQ"/>
-                            <constraint firstItem="l0f-jB-oFt" firstAttribute="top" secondItem="hne-Ga-vmC" secondAttribute="bottom" constant="25" id="Szk-4x-R3m"/>
+                            <constraint firstItem="l0f-jB-oFt" firstAttribute="top" secondItem="hne-Ga-vmC" secondAttribute="bottom" constant="8" id="Szk-4x-R3m"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hne-Ga-vmC" secondAttribute="trailing" constant="8" id="k5v-Rc-t9j"/>
                             <constraint firstItem="BO1-B5-QkN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kQP-ha-LGJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="df2-IN-fdc" secondAttribute="trailing" constant="16" id="ySt-tg-O7s"/>
                         </constraints>
                     </view>
                     <connections>
@@ -172,7 +176,7 @@
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do you feel?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eU5-6F-vgk" customClass="MaterialTextField" customModule="Pamm" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="418" height="44"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -393,7 +397,7 @@
                                             <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>

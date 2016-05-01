@@ -161,12 +161,12 @@ extension FeedsViewController: UIImagePickerControllerDelegate, UINavigationCont
                                         return
                                     }
                                  
-                                    guard let result = json["result"], let images = result["images"] else {
+                                    guard let result = json["result"], let images = result["images"] as? [[String: AnyObject]] else {
                                         print("couldn't find links in results")
                                         return
                                     }
                                     
-                                    guard let imgArr = images![0], let imageLink = imgArr["direct_link"] as? String else {
+                                    guard let imgArr = images.first, let imageLink = imgArr["direct_link"] as? String else {
                                         print("Couldn't find image")
                                         return
                                     }

@@ -189,3 +189,11 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
     }
 }
 
+extension LoginViewController {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesBegan(touches, withEvent: event)
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+}
+
