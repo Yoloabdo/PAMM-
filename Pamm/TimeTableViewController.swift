@@ -69,11 +69,14 @@ class TimeTableViewController: UITableViewController {
         return tableItems.count
     }
 
+    struct StoryBoard {
+        static let CellIdentfier = "TableCell"
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TimeCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(StoryBoard.CellIdentfier, forIndexPath: indexPath) as! TimeTableViewCell
 
-        cell.textLabel?.text = tableItems[indexPath.row]
+        cell.SubjectTitleLabel.text = tableItems[indexPath.row]
 
         return cell
     }

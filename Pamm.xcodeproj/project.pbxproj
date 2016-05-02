@@ -28,6 +28,7 @@
 		B4B668051CCAC88800BD6157 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B667FF1CCAC88800BD6157 /* Firebase.framework */; };
 		B4B668081CCACF5300BD6157 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B668071CCACF5300BD6157 /* DataService.swift */; };
 		B4C7C7141CD2527900CE49F6 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C7C7131CD2527900CE49F6 /* MaterialButton.swift */; };
+		B4EC3A401CD6630400731E48 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EC3A3F1CD6630400731E48 /* TimeTableViewCell.swift */; };
 		B4F0A60F1CCB99D500E1A3AC /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F0A60E1CCB99D500E1A3AC /* FeedsViewController.swift */; };
 		B4F0A6111CCB9CEB00E1A3AC /* FeedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F0A6101CCB9CEB00E1A3AC /* FeedsTableViewCell.swift */; };
 		B4F0A6171CCE72D600E1A3AC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F0A6161CCE72D600E1A3AC /* Post.swift */; };
@@ -60,6 +61,7 @@
 		B4B667FF1CCAC88800BD6157 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = "Pods/../build/Debug-iphoneos/Firebase.framework"; sourceTree = "<group>"; };
 		B4B668071CCACF5300BD6157 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		B4C7C7131CD2527900CE49F6 /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
+		B4EC3A3F1CD6630400731E48 /* TimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableViewCell.swift; sourceTree = "<group>"; };
 		B4F0A60E1CCB99D500E1A3AC /* FeedsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
 		B4F0A6101CCB9CEB00E1A3AC /* FeedsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsTableViewCell.swift; sourceTree = "<group>"; };
 		B4F0A6161CCE72D600E1A3AC /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		B4B667F51CCA97FE00BD6157 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B4EC3A3F1CD6630400731E48 /* TimeTableViewCell.swift */,
 				B4F0A6101CCB9CEB00E1A3AC /* FeedsTableViewCell.swift */,
 				B4B667F31CCA97F700BD6157 /* MaterialLoginView.swift */,
 				B4B667F81CCAC3EC00BD6157 /* MaterialTextField.swift */,
@@ -330,6 +333,7 @@
 				B4B668081CCACF5300BD6157 /* DataService.swift in Sources */,
 				B4F0A6111CCB9CEB00E1A3AC /* FeedsTableViewCell.swift in Sources */,
 				B4B667D91CCA8CE300BD6157 /* AppDelegate.swift in Sources */,
+				B4EC3A401CD6630400731E48 /* TimeTableViewCell.swift in Sources */,
 				B4F7539D1CD4DEB80094EE00 /* TimeTableViewController.swift in Sources */,
 				B4F0A6171CCE72D600E1A3AC /* Post.swift in Sources */,
 				B4B667F71CCA981300BD6157 /* Constants.swift in Sources */,
