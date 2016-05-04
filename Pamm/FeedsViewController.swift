@@ -207,3 +207,14 @@ extension FeedsViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
     
 }
+
+extension FeedsViewController {
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesBegan(touches, withEvent: event)
+        newPostTextField.resignFirstResponder()
+        self.resignFirstResponder()
+    }
+}
+
+
