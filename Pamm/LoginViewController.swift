@@ -114,8 +114,8 @@ class LoginViewController: UIViewController {
 extension LoginViewController: FBSDKLoginButtonDelegate {
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        guard let _ = result else {
-            print(error)
+       
+        if result.isCancelled {
             return
         }
 
